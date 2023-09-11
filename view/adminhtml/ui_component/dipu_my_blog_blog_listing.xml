@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+        <item name="provider" xsi:type="string">dipu_my_blog_blog_listing.dipu_my_blog_blog_listing_data_source</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string" translate="true">Add new post</item>
+                <item name="url" xsi:type="string">my_blog/blog/create</item>
+                <item name="class" xsi:type="string">primary</item>
+            </item>
+        </item>
+    </argument>
+
+    <settings>
+        <deps>
+            <dep>dipu_my_blog_blog_listing.dipu_my_blog_blog_listing_data_source</dep>
+        </deps>
+        <spinner>dipu_my_blog_blog_columns</spinner>
+    </settings>
+
+    <dataSource name="dipu_my_blog_blog_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+        </settings>
+        <aclResource>Dipu_MyBlog::myblog</aclResource>
+        <dataProvider name="dipu_my_blog_blog_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <paging name="listing_paging" />
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+    </listingToolbar>
+
+    <columns name="dipu_my_blog_blog_columns">
+        <column name="id">
+            <settings>
+                <label translate="true">ID</label>
+                <filter>textRange</filter>
+            </settings>
+        </column>
+
+        <column name="title">
+            <settings>
+                <label translate="true">Title</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+
+        <column name="content">
+            <settings>
+                <label translate="true">Content</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+
+        <column name="is_published" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <label translate="true">Is Published</label>
+                <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <dataType>select</dataType>
+                <sorting>desc</sorting>
+                <filter>select</filter>
+            </settings>
+        </column>
+
+        <column name="created_at">
+            <settings>
+                <label translate="true">Created At</label>
+                <filter>dateRange</filter>
+            </settings>
+        </column>
+
+        <column name="updated_at">
+            <settings>
+                <label translate="true">Updated At</label>
+                <filter>dateRange</filter>
+            </settings>
+        </column>
+
+        <actionsColumn name="actions" class="Dipu\MyBlog\Ui\Component\Listing\Column\Action"/>
+    </columns>
+
+
+</listing>

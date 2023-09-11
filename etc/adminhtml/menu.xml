@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Dipu_MyBlog::myblog"
+            title="Dipu Blogs"
+            translate="title"
+            module="Dipu_MyBlog"
+            resource="Dipu_MyBlog::myblog"
+            parent="Magento_Backend::content"
+            sortOrder="900"
+        />
+
+        <add
+            id="Dipu_MyBlog::blogs"
+            title="Blog"
+            translate="title"
+            module="Dipu_MyBlog"
+            resource="Dipu_MyBlog::myblog"
+            parent="Dipu_MyBlog::myblog"
+            action="my_blog/blog/index"
+        />
+    </menu>
+</config>

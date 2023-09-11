@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Dipu\MyBlog\Model\ResourceModel\Blog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dipu_blogs</argument>
+            <argument name="resourceModel" xsi:type="string">Dipu\MyBlog\Model\ResourceModel\Blog</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dipu_my_blog_blog_listing_data_source" xsi:type="string">Dipu\MyBlog\Model\ResourceModel\Blog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

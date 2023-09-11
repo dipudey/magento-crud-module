@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="dipu_blogs" engine="innodb" comment="Blog posts">
+        <column name="id" xsi:type="int" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+        <column name="title" xsi:type="text" nullable="false" comment="Title"/>
+        <column name="content" xsi:type="text" nullable="false" comment="Content"/>
+        <column name="is_published" xsi:type="boolean" nullable="false" default="false" comment="Is published"/>
+        <column name="created_at" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Created at"/>
+        <column name="updated_at" xsi:type="datetime" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
